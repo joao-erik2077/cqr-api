@@ -28,8 +28,8 @@ public class Order {
   @ManyToMany
   @JoinTable(
       name = "_order_product",
-      joinColumns = @JoinColumn(name = "category_id"),
-      inverseJoinColumns = @JoinColumn(name = "order_id")
+      joinColumns = @JoinColumn(name = "order_id"),
+      inverseJoinColumns = @JoinColumn(name = "product_id")
   )
   private List<Product> products = new ArrayList<>();
 
