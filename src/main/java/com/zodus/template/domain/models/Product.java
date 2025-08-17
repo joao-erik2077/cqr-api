@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Getter
 @Setter
@@ -24,15 +22,20 @@ public class Product {
 
   private String name;
   private String description;
-  private String price;
+  private Double price;
   private String imageUrl;
 
   private LocalDateTime createdAt = LocalDateTime.now();
   private LocalDateTime updatedAt;
 
-  @ManyToMany(mappedBy = "products")
-  private List<Category> categories = new ArrayList<>();
+  @ManyToMany
+  @JoinTable(
+      name = "_product_category",
+      joinColumns = @JoinColumn(name = "product_id"),
+      inverseJoinColumns = @JoinColumn(name = "category_id")
+  )
+  private Set<Category> categories = new HashSet<>();
 
   @ManyToMany(mappedBy = "products")
-  private List<Order> orders = new ArrayList<>();
+  private Set<Order> orders = new HashSet<>();
 }

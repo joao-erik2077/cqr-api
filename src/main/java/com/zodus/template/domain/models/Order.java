@@ -7,9 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Getter
 @Setter
@@ -31,7 +29,7 @@ public class Order {
       joinColumns = @JoinColumn(name = "order_id"),
       inverseJoinColumns = @JoinColumn(name = "product_id")
   )
-  private List<Product> products = new ArrayList<>();
+  private Set<Product> products = new HashSet<>();
 
   @OneToOne
   @JoinColumn(name = "sales_record_id")

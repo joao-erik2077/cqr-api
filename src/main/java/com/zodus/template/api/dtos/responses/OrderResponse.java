@@ -4,11 +4,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.zodus.template.utils.JsonFormatPatterns;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
-public record UserResponse(
+public record OrderResponse(
     UUID id,
-    String username,
+    List<ProductResponse> products,
+    UUID salesRecordId,
     @JsonFormat(pattern = JsonFormatPatterns.ISO_DATE)
     LocalDateTime createdAt,
     @JsonFormat(pattern = JsonFormatPatterns.ISO_DATE)

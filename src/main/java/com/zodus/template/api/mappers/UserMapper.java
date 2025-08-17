@@ -9,6 +9,6 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class UserMapper {
   public final UserResponse userToUserDto(User user) {
-    return new UserResponse(user.getId(), user.getUsername());
+    return new UserResponse(user.getId(), user.getUsername(), user.getCreatedAt(), user.getUpdatedAt());
   }
 }

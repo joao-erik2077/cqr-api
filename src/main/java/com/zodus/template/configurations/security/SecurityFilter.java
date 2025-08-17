@@ -35,7 +35,7 @@ public class SecurityFilter extends OncePerRequestFilter {
       UserDetails userDetails = tokenService.extractUser(token);
       Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
 
-      boolean isTokenExpired = tokenService.isTokenNotExpired(token);
+      boolean isTokenExpired = tokenService.isTokenExpired(token);
 
       if (isTokenExpired) {
         logger.info("Token for user {} was expired.", userDetails.getUsername());

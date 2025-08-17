@@ -6,9 +6,9 @@ import com.zodus.template.utils.JsonFormatPatterns;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public record UserResponse(
+public record CategoryResponse(
     UUID id,
-    String username,
+    String name,
     @JsonFormat(pattern = JsonFormatPatterns.ISO_DATE)
     LocalDateTime createdAt,
     @JsonFormat(pattern = JsonFormatPatterns.ISO_DATE)

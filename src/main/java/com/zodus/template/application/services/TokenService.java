@@ -38,8 +38,8 @@ public class TokenService {
     }
   }
 
-  public boolean isTokenNotExpired(String token) {
-    return LocalDateTime.now().toInstant(ZoneOffset.of(AMERICA_SAO_PAULO_OFFSET)).isBefore(getTokenExpirationDate(token));
+  public boolean isTokenExpired(String token) {
+    return LocalDateTime.now().toInstant(ZoneOffset.of(AMERICA_SAO_PAULO_OFFSET)).isAfter(getTokenExpirationDate(token));
   }
 
   public Instant getTokenExpirationDate(String token) {
